@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const { spawn } = require('cross-spawn');
 const { createProxyMiddleware } = require('http-proxy-middleware');
+const fs = require('fs');
 
 const configPath = path.join(__dirname, 'tileserver', 'config.json');
 console.log(`Путь к config.json: ${configPath}`);
