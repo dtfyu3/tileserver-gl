@@ -7,7 +7,7 @@ const fs = require('fs');
 const configPath = path.join(__dirname, 'tileserver', 'config.json');
 console.log(`Путь к config.json: ${configPath}`);
 
-const mbtilesPath = path.join(__dirname, 'tileserver', 'localized_with_temps.mbtiles');
+const mbtilesPath = path.join(__dirname, 'localized_with_temps.mbtiles');
 if (!fs.existsSync(mbtilesPath)) {
     console.error(`Файл localized_with_temps.mbtiles не найден по пути: ${mbtilesPath}`);
     process.exit(1);
