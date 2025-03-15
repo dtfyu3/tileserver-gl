@@ -39,6 +39,4 @@ app.listen(port, () => {
     console.log(`Прокси-сервер запущен на http://localhost:${port}`);
 });
 
-// Экспорт функции для Vercel
-export default app;
-const app = express();
+
