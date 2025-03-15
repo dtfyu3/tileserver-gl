@@ -1,0 +1,12 @@
+{
+    "options": {
+        "headers": {
+            "Access-Control-Allow-Origin": "*"
+        }
+    },
+    "data": {
+        "localized_with_temps": {
+            "mbtiles": "localized_with_temps.mbtiles"
+        }
+    }
+}
