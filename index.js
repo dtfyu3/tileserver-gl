@@ -1,15 +1,8 @@
-const { exec } = require('child_process');
+const tileserver = require('tileserver-gl');
+const path = require('path');
 
-const tileserverProcess = exec('tileserver-gl --config tileserver/config.json');
 
-tileserverProcess.stdout.on('data', (data) => {
-    console.log(`tileserver-gl: ${data}`);
-});
+const configPath = path.join(__dirname, 'tileserver', 'config.json');
 
-tileserverProcess.stderr.on('data', (data) => {
-    console.error(`tileserver-gl error: ${data}`);
-});
 
-tileserverProcess.on('close', (code) => {
-    console.log(`tileserver-gl завершил работу с кодом ${code}`);
-});
+tileserver(configPath);
