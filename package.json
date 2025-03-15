@@ -1,4 +1,10 @@
 {
+  "name": "tilesserver-gl",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "tileserver-gl --config config.json",
+    "build": "echo 'Build complete'"
+  },
     "dependencies": {
         "tileserver-gl": "^5.1.3"
     }
