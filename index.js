@@ -5,7 +5,7 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 const fs = require('fs');
 
 const app = express();
-
+const port = process.env.PORT || 3000;
 
 const configPath = path.join(__dirname, 'tileserver', 'config.json');
 console.log(`Путь к config.json: ${configPath}`);
