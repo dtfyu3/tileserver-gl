@@ -1,11 +1,11 @@
 {
-  "name": "tilesserver-gl",
+  "name": "tileserver-gl",
   "version": "1.0.0",
   "scripts": {
-    "start": "tileserver-gl --config config.json",
+    "start": "node index.js",
     "build": "echo 'Build complete'"
   },
-    "dependencies": {
-        "tileserver-gl": "^5.1.3"
-    }
+  "dependencies": {
+    "tileserver-gl": "^5.1.3"
+  }
 }
