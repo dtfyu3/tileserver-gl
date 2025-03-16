@@ -43,7 +43,7 @@ tileserverProcess.on('close', (code) => {
 
 app.use('/tiles', (req, res, next) => {
         createProxyMiddleware({
-            target: 'https://tileserver-gl-murex.vercel.app:8080',
+            target: 'http://127.0.0.1:8080',
             changeOrigin: true,
             pathRewrite: { '^/tiles': '' },
             onProxyRes: (proxyRes, req, res) => {
