@@ -1,7 +1,6 @@
 const express = require('express');
 const path = require('path');
 const { spawn } = require('cross-spawn');
-const { createProxyMiddleware } = require('http-proxy-middleware');
 const fs = require('fs');
 
 const app = express();
@@ -41,32 +40,12 @@ tileserverProcess.on('close', (code) => {
     console.log(`tileserver-gl завершил работу с кодом ${code}`);
 });
 
-
-// app.use('/tiles', (req, res, next) => {
-//         createProxyMiddleware({
-//             target: 'http://127.0.0.1:8080',
-//             changeOrigin: true,
-//             pathRewrite: { '^/tiles': '' },
-//             onProxyRes: (proxyRes, req, res) => {
-//                 const body = [];
-//                 proxyRes.on('data', (chunk) => body.push(chunk));
-//                 proxyRes.on('end', () => {
-//                     const response = {
-//                         headers: proxyRes.headers,
-//                         body: Buffer.concat(body)
-//                     };
-//                     cache.set(cacheKey, response);
-//                 });
-//             }
-//         })(req, res, next);
-// });
 app.get('/', (req, res) => {
     res.send('Cервер работает!');
 });
 
-// Запуск сервера
-// app.listen(port, () => {
-//     console.log(`Прокси-сервер запущен на http://localhost:${port}`);
-// });
+process.stdout.pipe(process.stdout);
+process.stderr.pipe(process.stderr);
+
 
 
