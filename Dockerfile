@@ -3,6 +3,8 @@ FROM node:18
 
 # Устанавливаем OpenGL и другие зависимости
 RUN apt-get update && apt-get install -y \
+    libjpeg8 \
+    libjpeg8-dev \
     libgl1-mesa-glx \
     libgl1-mesa-dri \
     libgbm1 \
