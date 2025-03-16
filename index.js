@@ -41,10 +41,24 @@ tileserverProcess.on('close', (code) => {
 });
 
 
-app.use('/tiles', createProxyMiddleware({
-    target: 'http://localhost:8080', // Локальный адрес tileserver-gl
-    changeOrigin: true,
-}));
+app.use('/tiles', (req, res, next) => {
+        createProxyMiddleware({
+            target: 'http://localhost:8080',
+            changeOrigin: true,
+            pathRewrite: { '^/tiles': '' },
+            onProxyRes: (proxyRes, req, res) => {
+                const body = [];
+                proxyRes.on('data', (chunk) => body.push(chunk));
+                proxyRes.on('end', () => {
+                    const response = {
+                        headers: proxyRes.headers,
+                        body: Buffer.concat(body)
+                    };
+                    cache.set(cacheKey, response);
+                });
+            }
+        })(req, res, next);
+});
 app.get('/', (req, res) => {
     res.send('Прокси-сервер работает!');
 });
