@@ -2,7 +2,7 @@
   "name": "tileserver-gl",
   "version": "1.0.0",
   "scripts": {
-    "start": "node index.js",
+    "start": "node --no-deprecation index.js",
     "build": "echo 'Build complete'"
   },
   "dependencies": {
