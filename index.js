@@ -25,6 +25,21 @@ const tileserverProcess = spawn(
     { stdio: 'inherit' }
 );
 
+tileserverProcess.on('spawn', () => {
+    console.log('tileserver-gl запущен');
+})
+tileserverProcess.stdout?.on('data', (data) => {
+    console.log(`tileserver-gl: ${data}`);
+});
+
+tileserverProcess.stderr?.on('data', (data) => {
+    console.error(`tileserver-gl error: ${data}`);
+});
+
+tileserverProcess.on('close', (code) => {
+    console.log(`tileserver-gl завершил работу с кодом ${code}`);
+});
+
 
 app.use('/tiles', createProxyMiddleware({
     target: 'http://localhost:8080', // Локальный адрес tileserver-gl
