@@ -5,8 +5,21 @@
         }
     },
     "data": {
-        "localized_with_temps": {
-            "mbtiles": "localized_with_temps.mbtiles"
+        "countries": {
+            "mbtiles": "countries.mbtiles"
+        },
+        "regions":{
+            "mbtiles": "regions.mbtiles"
         }
-    }
+    },
+    "layers": [
+        {
+            "id": "countries",
+            "source": "countries"
+        },
+        {
+            "id": "regions",
+            "source": "regions"
+        }
+    ]
 }
